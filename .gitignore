@@ -1,0 +1,7 @@
+# Local Netlify folder
+.netlify
+.npm-cache
+node_modules
+.DS_Store
+current-site.html
+preview-site

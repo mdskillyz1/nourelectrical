@@ -1,0 +1,11 @@
+{
+  "name": "nour-electrical-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "resend": "^4.8.0"
+  }
+}
