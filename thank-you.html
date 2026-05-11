@@ -4,9 +4,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Thank You | Nour Electrical</title>
+    <meta http-equiv="refresh" content="10;url=index.html">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
   </head>
   <body>
-    <h1>Thank you!</h1>
-    <p>Your message has been received. We will contact you soon.</p>
+    <main class="success-page">
+      <section class="success-card">
+        <p class="eyebrow">Request received</p>
+        <h1>Thank you, your details have been sent safely.</h1>
+        <p>Nour Electrical has received your message. We will review the details and contact you soon to confirm the next step.</p>
+        <p class="success-note">If your electrical issue is urgent, call or WhatsApp now so we can respond faster. You will be returned to the homepage shortly.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+447862632885">
+            <i data-lucide="phone-call"></i>
+            Call now
+          </a>
+          <a class="btn btn-secondary" href="https://wa.me/447862632885">
+            <i data-lucide="message-circle"></i>
+            WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="index.html">
+            <i data-lucide="home"></i>
+            Back to home
+          </a>
+        </div>
+      </section>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
   </body>
 </html>
