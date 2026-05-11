@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="site-config.js"></script>
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script type="application/ld+json">
       {
@@ -396,7 +397,7 @@
         <i data-lucide="phone"></i>
         Call <span data-dynamic-text="phoneDisplay">07862 632885</span>
       </a>
-      <a class="admin-entry" href="admin-login.html" aria-label="Admin login">Admin</a>
+      <a class="admin-entry" href="admin-login.html" aria-label="Admin login" data-admin-entry>Admin</a>
     </footer>
 
     <div class="mobile-cta" aria-label="Mobile contact buttons">
@@ -475,7 +476,15 @@
           });
         }
 
-        fetch("/api/public-content")
+        var apiBase = (window.NOUR_API_BASE || "").replace(/\/$/, "");
+        var adminUrl = window.NOUR_ADMIN_URL || "admin-login.html";
+        var adminEntry = document.querySelector("[data-admin-entry]");
+
+        if (adminEntry) {
+          adminEntry.setAttribute("href", adminUrl);
+        }
+
+        fetch(apiBase + "/api/public-content")
           .then(function (response) {
             return response.ok ? response.json() : null;
           })
@@ -508,7 +517,7 @@
             }
 
             try {
-              var response = await fetch("/api/send-email", {
+              var response = await fetch(apiBase + "/api/send-email", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json"

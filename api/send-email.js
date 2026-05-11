@@ -4,6 +4,7 @@
 // 3. Optional: add RESEND_FROM, for example "Nour Electrical <hello@nourelectricals.com>" after verifying the domain in Resend.
 
 const { addSubmission } = require("./_storage");
+const { applyCors, handleOptions } = require("./_cors");
 
 const recipients = ["nourelectricals@gmail.com", "demmvisuals@gmail.com"];
 
@@ -24,6 +25,11 @@ const escapeHtml = (value = "") =>
 const isEmail = (value = "") => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 module.exports = async function handler(req, res) {
+  if (handleOptions(req, res)) {
+    return;
+  }
+
+  applyCors(req, res);
   console.log("send-email API invoked", { method: req.method });
 
   if (req.method !== "POST") {
