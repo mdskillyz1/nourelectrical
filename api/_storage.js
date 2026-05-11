@@ -9,28 +9,19 @@ const jsonResponse = (res, status, body) => {
 
 const isStorageConfigured = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN);
 
-async function getBlob(pathname) {
-  if (!isStorageConfigured()) {
-    return null;
-  }
-
-  const { list } = await import("@vercel/blob");
-  const result = await list({ prefix: pathname, limit: 100 });
-  return (result.blobs || []).find((blob) => blob.pathname === pathname) || null;
-}
-
 async function readJson(pathname, fallback) {
   try {
-    const blob = await getBlob(pathname);
-    if (!blob) {
+    if (!isStorageConfigured()) {
       return fallback;
     }
 
-    const response = await fetch(blob.downloadUrl || blob.url, { cache: "no-store" });
-    if (!response.ok) {
+    const { get } = await import("@vercel/blob");
+    const result = await get(pathname, { access: "private" });
+    if (!result || result.statusCode !== 200 || !result.stream) {
       return fallback;
     }
 
+    const response = new Response(result.stream);
     return await response.json();
   } catch (error) {
     console.error("Blob read failed", { pathname, error });
