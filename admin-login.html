@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Login | Nour Electrical</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+  </head>
+  <body class="admin-body">
+    <main class="admin-login-shell">
+      <form class="admin-login-card" id="adminLoginForm">
+        <p class="eyebrow">Admin access</p>
+        <h1>Nour Electrical dashboard</h1>
+        <p>Sign in to manage enquiries, quote requests and website details.</p>
+        <label>
+          Username
+          <input type="text" name="username" autocomplete="username" required>
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" autocomplete="current-password" required>
+        </label>
+        <button class="btn btn-primary" type="submit">Sign in</button>
+        <p class="admin-message" id="adminLoginMessage" role="status"></p>
+        <a class="admin-back-link" href="index.html">Back to website</a>
+      </form>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        var form = document.getElementById("adminLoginForm");
+        var message = document.getElementById("adminLoginMessage");
+
+        form.addEventListener("submit", async function (event) {
+          event.preventDefault();
+          message.textContent = "Checking login...";
+
+          try {
+            var response = await fetch("/api/admin-login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+            });
+
+            var data = await response.json();
+            if (!response.ok) {
+              throw new Error(data.error || "Login failed");
+            }
+
+            window.location.href = "admin-dashboard.html";
+          } catch (error) {
+            message.textContent = error.message;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

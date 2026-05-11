@@ -6,3 +6,4 @@ node_modules
 current-site.html
 preview-site
 .vercel
+.env*.local

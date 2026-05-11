@@ -632,6 +632,7 @@ textarea {
 }
 
 .footer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   gap: 24px;
@@ -667,6 +668,19 @@ textarea {
 
 .footer-links a:hover {
   color: var(--amber);
+}
+
+.admin-entry {
+  bottom: 8px;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.68rem;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+}
+
+.admin-entry:hover {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .legal-page {

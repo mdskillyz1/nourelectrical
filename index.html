@@ -55,9 +55,9 @@
         <a href="#areas">Areas</a>
         <a href="#quote">Quote</a>
       </nav>
-      <a class="header-call" href="tel:+447862632885">
+      <a class="header-call" href="tel:+447862632885" data-dynamic-href="phoneTel">
         <i data-lucide="phone"></i>
-        <span>07862 632885</span>
+        <span data-dynamic-text="phoneDisplay">07862 632885</span>
       </a>
     </header>
 
@@ -65,14 +65,14 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Electrical services for London homes, landlords and businesses</p>
-          <h1>Fast, tidy electrical work from a London electrician you can actually trust.</h1>
-          <p class="hero-intro">Emergency faults, EICR bookings, fuse board upgrades, rewiring, sockets, lighting and landlord electrical work handled with clear pricing and tidy workmanship.</p>
+          <h1 data-dynamic-text="keyText.heroHeadline">Fast, tidy electrical work from a London electrician you can actually trust.</h1>
+          <p class="hero-intro" data-dynamic-text="keyText.heroIntro">Emergency faults, EICR bookings, fuse board upgrades, rewiring, sockets, lighting and landlord electrical work handled with clear pricing and tidy workmanship.</p>
           <div class="hero-actions" aria-label="Contact options">
-            <a class="btn btn-primary" href="tel:+447862632885">
+            <a class="btn btn-primary" href="tel:+447862632885" data-dynamic-href="phoneTel">
               <i data-lucide="phone-call"></i>
               Call now
             </a>
-            <a class="btn btn-secondary" href="https://wa.me/447862632885">
+            <a class="btn btn-secondary" href="https://wa.me/447862632885" data-dynamic-href="whatsappHref">
               <i data-lucide="message-circle"></i>
               WhatsApp
             </a>
@@ -81,7 +81,7 @@
               Get a quote
             </a>
           </div>
-          <a class="google-review-link" href="https://g.page/r/CZMygcl-52V-EBI/review">
+          <a class="google-review-link" href="https://g.page/r/CZMygcl-52V-EBI/review" data-dynamic-href="googleReviewsHref">
             <i data-lucide="star"></i>
             5.0 Google rating
           </a>
@@ -124,13 +124,13 @@
         <div>
           <p class="eyebrow">Google Business Profile</p>
           <h2>NOUR ELECTRICAL</h2>
-          <p>Electrician in London, England. Based at Academia Way, London N17 8HE and serving London plus nearby areas.</p>
+          <p>Electrician in London, England. Based at <span data-dynamic-text="address">Academia Way, London N17 8HE</span> and serving London plus nearby areas.</p>
         </div>
         <div class="profile-stats" aria-label="Google Business Profile details">
           <span><i data-lucide="star"></i> 5.0 Google rating</span>
           <span><i data-lucide="message-square-heart"></i> Customer recommended</span>
-          <span><i data-lucide="clock"></i> Open Monday-Saturday, 8am-6pm</span>
-          <span><i data-lucide="map-pin"></i> Academia Way, London N17 8HE</span>
+          <span><i data-lucide="clock"></i> <span data-dynamic-text="openingHours">Open Monday-Saturday, 8am-6pm</span></span>
+          <span><i data-lucide="map-pin"></i> <span data-dynamic-text="address">Academia Way, London N17 8HE</span></span>
         </div>
       </section>
 
@@ -143,37 +143,37 @@
           <article class="service-card">
             <i data-lucide="zap"></i>
             <h3>Emergency electrician</h3>
-            <p>Power cuts, tripping circuits, burning smells, faulty sockets and urgent electrical faults.</p>
+            <p data-dynamic-text="services.emergency">Power cuts, tripping circuits, burning smells, faulty sockets and urgent electrical faults.</p>
             <a href="#quote">Book emergency help</a>
           </article>
           <article class="service-card">
             <i data-lucide="file-check-2"></i>
             <h3>EICR certificates</h3>
-            <p>Electrical Installation Condition Reports for landlords, buyers, sellers and homeowners.</p>
+            <p data-dynamic-text="services.eicr">Electrical Installation Condition Reports for landlords, buyers, sellers and homeowners.</p>
             <a href="#quote">Request an EICR</a>
           </article>
           <article class="service-card">
             <i data-lucide="panel-top"></i>
             <h3>Consumer units</h3>
-            <p>Fuse board replacements, RCD/RCBO upgrades, testing and certification.</p>
+            <p data-dynamic-text="services.consumerUnit">Fuse board replacements, RCD/RCBO upgrades, testing and certification.</p>
             <a href="#quote">Upgrade fuse board</a>
           </article>
           <article class="service-card">
             <i data-lucide="cable"></i>
             <h3>Rewiring</h3>
-            <p>Full and partial rewires for older homes, renovations, extensions and rental properties.</p>
+            <p data-dynamic-text="services.rewiring">Full and partial rewires for older homes, renovations, extensions and rental properties.</p>
             <a href="#quote">Plan a rewire</a>
           </article>
           <article class="service-card">
             <i data-lucide="plug-zap"></i>
             <h3>Sockets and switches</h3>
-            <p>New sockets, USB outlets, outdoor sockets, replacements and fault diagnosis.</p>
+            <p data-dynamic-text="services.sockets">New sockets, USB outlets, outdoor sockets, replacements and fault diagnosis.</p>
             <a href="#quote">Add sockets</a>
           </article>
           <article class="service-card">
             <i data-lucide="lightbulb"></i>
             <h3>Lighting</h3>
-            <p>Indoor lighting, garden lighting, security lights, LED upgrades and repairs.</p>
+            <p data-dynamic-text="services.lighting">Indoor lighting, garden lighting, security lights, LED upgrades and repairs.</p>
             <a href="#quote">Fix lighting</a>
           </article>
         </div>
@@ -203,7 +203,7 @@
               <i data-lucide="star"></i>
               Read Google reviews
             </a>
-            <a class="btn btn-secondary" href="https://g.page/r/CZMygcl-52V-EBI/review" aria-label="Leave Nour Electrical a Google review">
+            <a class="btn btn-secondary" href="https://g.page/r/CZMygcl-52V-EBI/review" aria-label="Leave Nour Electrical a Google review" data-dynamic-href="googleReviewsHref">
               <i data-lucide="message-square-plus"></i>
               Leave a review
             </a>
@@ -306,12 +306,12 @@
       <section class="section quote-section" id="quote">
         <div>
           <p class="eyebrow">Get a faster quote</p>
-          <h2>Tell us what you need and we will get back to you quickly.</h2>
-          <p>Share your postcode, the type of electrical work you need and how urgent it is. You can also call or WhatsApp if you need help sooner.</p>
+          <h2 data-dynamic-text="keyText.quoteHeading">Tell us what you need and we will get back to you quickly.</h2>
+          <p data-dynamic-text="keyText.quoteIntro">Share your postcode, the type of electrical work you need and how urgent it is. You can also call or WhatsApp if you need help sooner.</p>
           <div class="contact-stack">
-            <a href="tel:+447862632885"><i data-lucide="phone"></i> 07862 632885</a>
-            <a href="mailto:Nourelectricals@gmail.com"><i data-lucide="mail"></i> Nourelectricals@gmail.com</a>
-            <a href="https://wa.me/447862632885"><i data-lucide="message-circle"></i> WhatsApp Nour Electrical</a>
+            <a href="tel:+447862632885" data-dynamic-href="phoneTel"><i data-lucide="phone"></i> <span data-dynamic-text="phoneDisplay">07862 632885</span></a>
+            <a href="mailto:Nourelectricals@gmail.com" data-dynamic-href="emailMailto"><i data-lucide="mail"></i> <span data-dynamic-text="email">Nourelectricals@gmail.com</span></a>
+            <a href="https://wa.me/447862632885" data-dynamic-href="whatsappHref"><i data-lucide="message-circle"></i> WhatsApp Nour Electrical</a>
           </div>
         </div>
         <form class="quote-form" id="quoteForm" name="quote" method="POST">
@@ -384,7 +384,7 @@
     <footer class="footer">
       <div>
         <strong>Nour Electrical</strong>
-        <p>Electrical services for London homes, landlords and businesses.</p>
+        <p data-dynamic-text="footerTagline">Electrical services for London homes, landlords and businesses.</p>
         <p class="footer-legal">© 2026 Nour Electrical. All rights reserved.</p>
         <nav class="footer-links" aria-label="Legal links">
           <a href="privacy-policy.html">Privacy Policy</a>
@@ -394,13 +394,14 @@
       </div>
       <a class="btn btn-secondary" href="tel:+447862632885">
         <i data-lucide="phone"></i>
-        Call 07862 632885
+        Call <span data-dynamic-text="phoneDisplay">07862 632885</span>
       </a>
+      <a class="admin-entry" href="admin-login.html" aria-label="Admin login">Admin</a>
     </footer>
 
     <div class="mobile-cta" aria-label="Mobile contact buttons">
-      <a href="tel:+447862632885"><i data-lucide="phone"></i> Call</a>
-      <a href="https://wa.me/447862632885"><i data-lucide="message-circle"></i> WhatsApp</a>
+      <a href="tel:+447862632885" data-dynamic-href="phoneTel"><i data-lucide="phone"></i> Call</a>
+      <a href="https://wa.me/447862632885" data-dynamic-href="whatsappHref"><i data-lucide="message-circle"></i> WhatsApp</a>
     </div>
 
     <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie consent" hidden>
@@ -444,6 +445,48 @@
             saveCookieChoice("rejected");
           });
         }
+
+        function readPath(source, path) {
+          return path.split(".").reduce(function (value, key) {
+            return value && value[key];
+          }, source);
+        }
+
+        function applyWebsiteContent(content) {
+          var values = {
+            phoneTel: "tel:" + (content.phoneHref || "").replace(/\s/g, ""),
+            emailMailto: "mailto:" + (content.email || ""),
+            whatsappHref: content.whatsappHref,
+            googleReviewsHref: content.googleReviewsHref
+          };
+
+          document.querySelectorAll("[data-dynamic-text]").forEach(function (element) {
+            var value = readPath(content, element.getAttribute("data-dynamic-text"));
+            if (value) {
+              element.textContent = value;
+            }
+          });
+
+          document.querySelectorAll("[data-dynamic-href]").forEach(function (element) {
+            var value = values[element.getAttribute("data-dynamic-href")];
+            if (value) {
+              element.setAttribute("href", value);
+            }
+          });
+        }
+
+        fetch("/api/public-content")
+          .then(function (response) {
+            return response.ok ? response.json() : null;
+          })
+          .then(function (data) {
+            if (data && data.content) {
+              applyWebsiteContent(data.content);
+            }
+          })
+          .catch(function (error) {
+            console.error("Website content load failed:", error);
+          });
 
         function wireForm(formId) {
           var form = document.getElementById(formId);

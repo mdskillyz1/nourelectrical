@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard | Nour Electrical</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+  </head>
+  <body class="admin-body">
+    <main class="admin-shell" hidden>
+      <aside class="admin-sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">
+            <span>NOUR</span>
+            <span>ELECTRICAL</span>
+          </span>
+          <span>Admin</span>
+        </a>
+        <nav class="admin-nav" aria-label="Admin sections">
+          <a href="#overview">Overview</a>
+          <a href="#submissions">Submissions</a>
+          <a href="#content">Website details</a>
+        </nav>
+        <button class="btn btn-ghost" id="logoutButton" type="button">Sign out</button>
+      </aside>
+
+      <section class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <p class="eyebrow">Nour Electrical</p>
+            <h1>Website dashboard</h1>
+          </div>
+          <a class="btn btn-secondary" href="index.html">View website</a>
+        </header>
+
+        <section class="admin-warning" id="storageWarning" hidden>
+          Storage is not connected yet. Add <strong>BLOB_READ_WRITE_TOKEN</strong> in Vercel so dashboard changes and submissions can be saved.
+        </section>
+
+        <section class="admin-section" id="overview">
+          <div class="admin-card-grid">
+            <article class="metric-card">
+              <span>Total sign-ups</span>
+              <strong id="metricSignups">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Quote requests</span>
+              <strong id="metricQuotes">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Pending quotes</span>
+              <strong id="metricPending">0</strong>
+            </article>
+            <article class="metric-card">
+              <span>Completed quotes</span>
+              <strong id="metricCompleted">0</strong>
+            </article>
+          </div>
+
+          <div class="admin-panel">
+            <div class="admin-panel-heading">
+              <h2>Recent activity</h2>
+              <span>Last 14 active days</span>
+            </div>
+            <div class="activity-chart" id="activityChart"></div>
+          </div>
+        </section>
+
+        <section class="admin-section" id="submissions">
+          <div class="admin-panel">
+            <div class="admin-panel-heading">
+              <div>
+                <h2>Quote requests and sign-ups</h2>
+                <span>Search, update status, delete spam or export CSV.</span>
+              </div>
+              <a class="btn btn-secondary" href="/api/admin-submissions?format=csv">Export CSV</a>
+            </div>
+            <div class="admin-filters">
+              <input id="submissionSearch" type="search" placeholder="Search name, email, postcode or message">
+              <select id="submissionType">
+                <option value="">All submissions</option>
+                <option value="quote">Quote requests</option>
+                <option value="newsletter">Sign-ups</option>
+              </select>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Customer</th>
+                    <th>Details</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="submissionRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="admin-section" id="content">
+          <form class="admin-panel content-form" id="contentForm">
+            <div class="admin-panel-heading">
+              <div>
+                <h2>Editable website details</h2>
+                <span>Changes update the customer-facing website after save.</span>
+              </div>
+              <button class="btn btn-primary" type="submit">Save changes</button>
+            </div>
+            <div class="content-grid">
+              <label>Business name<input name="businessName"></label>
+              <label>Phone display<input name="phoneDisplay"></label>
+              <label>Phone link<input name="phoneHref"></label>
+              <label>Email<input name="email" type="email"></label>
+              <label>Address<input name="address"></label>
+              <label>Opening hours<input name="openingHours"></label>
+              <label>WhatsApp link<input name="whatsappHref"></label>
+              <label>Google reviews link<input name="googleReviewsHref"></label>
+              <label>Facebook link<input name="facebookHref"></label>
+              <label>Instagram link<input name="instagramHref"></label>
+              <label class="wide">Footer text<input name="footerTagline"></label>
+              <label class="wide">Hero headline<textarea name="keyText.heroHeadline"></textarea></label>
+              <label class="wide">Hero intro<textarea name="keyText.heroIntro"></textarea></label>
+              <label class="wide">Quote heading<textarea name="keyText.quoteHeading"></textarea></label>
+              <label class="wide">Quote intro<textarea name="keyText.quoteIntro"></textarea></label>
+              <label class="wide">Emergency electrician<textarea name="services.emergency"></textarea></label>
+              <label class="wide">EICR certificates<textarea name="services.eicr"></textarea></label>
+              <label class="wide">Consumer units<textarea name="services.consumerUnit"></textarea></label>
+              <label class="wide">Rewiring<textarea name="services.rewiring"></textarea></label>
+              <label class="wide">Sockets and switches<textarea name="services.sockets"></textarea></label>
+              <label class="wide">Lighting<textarea name="services.lighting"></textarea></label>
+            </div>
+            <p class="admin-message" id="contentMessage" role="status"></p>
+          </form>
+        </section>
+      </section>
+    </main>
+    <div class="admin-boot-message" id="adminBootMessage">Checking admin session...</div>
+    <script src="admin.js"></script>
+  </body>
+</html>

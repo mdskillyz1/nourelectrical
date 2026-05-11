@@ -3,6 +3,8 @@
 // 2. In Vercel, add RESEND_API_KEY under Project Settings > Environment Variables.
 // 3. Optional: add RESEND_FROM, for example "Nour Electrical <hello@nourelectricals.com>" after verifying the domain in Resend.
 
+const { addSubmission } = require("./_storage");
+
 const recipients = ["nourelectricals@gmail.com", "demmvisuals@gmail.com"];
 
 const sanitize = (value = "") =>
@@ -84,6 +86,23 @@ module.exports = async function handler(req, res) {
     if (result.error) {
       console.error("Resend send failed", result.error);
       return res.status(502).json({ error: "Email could not be sent" });
+    }
+
+    try {
+      await addSubmission({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`,
+        type: formType === "newsletter" ? "newsletter" : "quote",
+        status: formType === "newsletter" ? "subscribed" : "pending",
+        createdAt: new Date().toISOString(),
+        name: sanitize(data.name || ""),
+        email,
+        phone: sanitize(data.phone || ""),
+        postcode: sanitize(data.postcode || ""),
+        service: sanitize(data.service || ""),
+        message: sanitize(data.message || "")
+      });
+    } catch (storageError) {
+      console.error("Submission storage failed", storageError);
     }
 
     console.log("Email sent successfully", { id: result.data && result.data.id, formType });
