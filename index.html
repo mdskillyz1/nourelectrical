@@ -465,9 +465,7 @@
             }
 
             try {
-              var isVercel = window.location.hostname.indexOf("vercel.app") !== -1;
-              var emailEndpoint = isVercel ? "/api/send-email" : "/.netlify/functions/send-email";
-              var response = await fetch(emailEndpoint, {
+              var response = await fetch("/api/send-email", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json"
