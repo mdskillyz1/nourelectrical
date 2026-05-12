@@ -670,6 +670,35 @@ textarea {
   color: var(--amber);
 }
 
+.footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.footer-socials a {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: var(--white);
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  transition: 0.2s ease;
+  width: 40px;
+}
+
+.footer-socials a:hover {
+  background: var(--amber);
+  border-color: var(--amber);
+  color: var(--charcoal);
+}
+
+.footer-socials svg {
+  height: 19px;
+  width: 19px;
+}
+
 .admin-entry {
   bottom: 8px;
   color: rgba(255, 255, 255, 0.28);

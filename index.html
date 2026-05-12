@@ -392,6 +392,14 @@
           <a href="cookie-policy.html">Cookie Policy</a>
           <a href="terms-and-conditions.html">Terms and Conditions</a>
         </nav>
+        <nav class="footer-socials" aria-label="Social media links">
+          <a href="https://www.facebook.com/" data-dynamic-href="facebookHref" aria-label="Visit Nour Electrical on Facebook">
+            <i data-lucide="facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/" data-dynamic-href="instagramHref" aria-label="Visit Nour Electrical on Instagram">
+            <i data-lucide="instagram"></i>
+          </a>
+        </nav>
       </div>
       <a class="btn btn-secondary" href="tel:+447862632885">
         <i data-lucide="phone"></i>
@@ -458,7 +466,9 @@
             phoneTel: "tel:" + (content.phoneHref || "").replace(/\s/g, ""),
             emailMailto: "mailto:" + (content.email || ""),
             whatsappHref: content.whatsappHref,
-            googleReviewsHref: content.googleReviewsHref
+            googleReviewsHref: content.googleReviewsHref,
+            facebookHref: content.facebookHref,
+            instagramHref: content.instagramHref
           };
 
           document.querySelectorAll("[data-dynamic-text]").forEach(function (element) {
