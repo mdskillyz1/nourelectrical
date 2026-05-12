@@ -5,6 +5,7 @@
 
 const { addSubmission } = require("./_storage");
 const { applyCors, handleOptions } = require("./_cors");
+const { noStore } = require("./_headers");
 
 const recipients = ["nourelectricals@gmail.com", "demmvisuals@gmail.com"];
 
@@ -25,6 +26,8 @@ const escapeHtml = (value = "") =>
 const isEmail = (value = "") => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
 module.exports = async function handler(req, res) {
+  noStore(res);
+
   if (handleOptions(req, res)) {
     return;
   }

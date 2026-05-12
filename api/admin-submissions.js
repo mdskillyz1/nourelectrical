@@ -1,5 +1,6 @@
 const { requireAdmin } = require("./_auth");
 const { getSubmissions, saveSubmissions } = require("./_storage");
+const { noStore } = require("./_headers");
 
 const toCsv = (rows) => {
   const headers = ["id", "type", "status", "createdAt", "name", "email", "phone", "postcode", "service", "message"];
@@ -8,6 +9,8 @@ const toCsv = (rows) => {
 };
 
 module.exports = async function handler(req, res) {
+  noStore(res);
+
   if (!requireAdmin(req, res)) {
     return;
   }

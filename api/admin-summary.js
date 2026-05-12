@@ -1,9 +1,12 @@
 const { requireAdmin } = require("./_auth");
 const { getSubmissions, isStorageConfigured } = require("./_storage");
+const { noStore } = require("./_headers");
 
 const dayKey = (date) => new Date(date).toISOString().slice(0, 10);
 
 module.exports = async function handler(req, res) {
+  noStore(res);
+
   if (!requireAdmin(req, res)) {
     return;
   }

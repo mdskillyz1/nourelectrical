@@ -1,7 +1,10 @@
 const { getContent } = require("./_storage");
 const { applyCors, handleOptions } = require("./_cors");
+const { noStore } = require("./_headers");
 
 module.exports = async function handler(req, res) {
+  noStore(res);
+
   if (handleOptions(req, res)) {
     return;
   }

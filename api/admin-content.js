@@ -1,9 +1,12 @@
 const { requireAdmin } = require("./_auth");
 const { getContent, saveContent } = require("./_storage");
+const { noStore } = require("./_headers");
 
 const clean = (value = "") => String(value).replace(/[\u0000-\u001F\u007F]/g, "").trim().slice(0, 2000);
 
 module.exports = async function handler(req, res) {
+  noStore(res);
+
   if (!requireAdmin(req, res)) {
     return;
   }

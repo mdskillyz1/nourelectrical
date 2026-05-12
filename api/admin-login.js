@@ -1,6 +1,9 @@
 const { safeEqual, sessionCookie } = require("./_auth");
+const { noStore } = require("./_headers");
 
 module.exports = async function handler(req, res) {
+  noStore(res);
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
